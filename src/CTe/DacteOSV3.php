@@ -1527,7 +1527,9 @@ class DacteOSV3 extends Common
 
         $x = $oldX;
         $y = $y + 4;
-        $texto = number_format($this->getTagValue($this->infQ->item(0), "qCarga"), 3, ",", ".");
+        //$texto = number_format($this->getTagValue($this->infQ->item(0), "qCarga"), 3, ",", ".");
+        $texto = !empty($this->getTagValue($this->infQ->item(0), "qCarga")) ?
+            number_format($this->getTagValue($this->infQ->item(0), "qCarga"), 3, ",", ".") : '';
         $aFont = $this->formatNegrito;
         $this->pTextBox($x, $y, $w * 0.26, $h, $texto, $aFont, 'T', 'L', 0, '');
         $x += $w * 0.26;
